@@ -153,7 +153,7 @@ def load_titanic():
     :rtype: pandas.DataFrame
     """
     file_path = download_file('http://web.stanford.edu/class/archive/cs/cs109/cs109.1166/stuff/titanic.csv',
-                              '~/.keras-pandas/example_datasets/', filename='titanic.csv')
+                              '../data/input/', filename='titanic.csv')
 
     observations = pandas.read_csv(file_path)
     observations.columns = map(lambda x: x.lower().replace(' ', '_').replace('/', '_'), observations.columns)
