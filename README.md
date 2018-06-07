@@ -9,7 +9,7 @@ A brief, snappy description of what this project does, and why the audience care
 conda env create -f environment.yml --force
 
 # Activate Anaconda virtual environment
-source activate (environment_name)
+source activate example
 
 # Run code
 cd bin/
