@@ -12,6 +12,7 @@ CONFS = None
 BATCH_NAME = None
 TEMP_DIR = None
 BATCH_OUTPUT_FOLDER = None
+HONORIFIC_VOCABULARY = ['Miss.', 'Mme.', 'Rev.', 'Jonkheer.', 'Sir.', 'Mlle.', 'Mrs.', 'Capt.', 'Col.', 'Ms.', 'Mr.', 'Lady.', 'Dr.', 'the', 'Master.', 'Major.', 'Don.']
 
 
 def load_confs(confs_path='../conf/conf.yaml'):
@@ -19,7 +20,7 @@ def load_confs(confs_path='../conf/conf.yaml'):
     Load configurations from file.
 
      - If configuration file is available, load it
-     - If configuraiton file is not available attempt to load configuration template
+     - If configuration file is not available attempt to load configuration template
 
     Configurations are never explicitly validated.
     :param confs_path: Path to a configuration file, appropriately formatted for this application

@@ -12,4 +12,5 @@
 # Output files
 data/output/*
 
-# O
+# Input data folder
+data/input
