@@ -12,7 +12,8 @@ CONFS = None
 BATCH_NAME = None
 TEMP_DIR = None
 BATCH_OUTPUT_FOLDER = None
-HONORIFIC_VOCABULARY = ['Miss.', 'Mme.', 'Rev.', 'Jonkheer.', 'Sir.', 'Mlle.', 'Mrs.', 'Capt.', 'Col.', 'Ms.', 'Mr.', 'Lady.', 'Dr.', 'the', 'Master.', 'Major.', 'Don.']
+HONORIFIC_VOCABULARY = ['Miss.', 'Mme.', 'Rev.', 'Jonkheer.', 'Sir.', 'Mlle.', 'Mrs.', 'Capt.', 'Col.', 'Ms.', 'Mr.',
+                        'Lady.', 'Dr.', 'the', 'Master.', 'Major.', 'Don.']
 
 
 def load_confs(confs_path='../conf/conf.yaml'):
@@ -70,7 +71,7 @@ def get_batch_name():
         logging.info('Batch name not yet set. Setting batch name.')
         batch_prefix = get_conf('batch_prefix')
         model_choice = get_conf('model_choice')
-        datetime_str = str(datetime.datetime.utcnow().replace(microsecond=0).isoformat())+'Z'
+        datetime_str = str(datetime.datetime.utcnow().replace(microsecond=0).isoformat()) + 'Z'
         BATCH_NAME = '_'.join([batch_prefix, model_choice, datetime_str])
         logging.info('Batch name: {}'.format(BATCH_NAME))
     return BATCH_NAME
@@ -147,6 +148,7 @@ def archive_dataset_schemas(step_name, local_dict, global_dict):
     # Write to file
     agg_schema_df.to_csv(schema_output_path, index_label='variable')
 
+
 def load_titanic():
     """
     Load the titanic data set, as a pandas DataFrame
@@ -160,6 +162,7 @@ def load_titanic():
     observations.columns = map(lambda x: x.lower().replace(' ', '_').replace('/', '_'), observations.columns)
 
     return observations
+
 
 def download_file(url, local_file_path, filename):
     """

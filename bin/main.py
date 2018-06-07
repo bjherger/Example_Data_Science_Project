@@ -8,7 +8,6 @@ Code Template
 import cPickle
 import logging
 import os
-import pandas
 
 import numpy
 from sklearn.feature_extraction.text import CountVectorizer
@@ -40,7 +39,6 @@ def main():
     train, test = transform(observations)
     train, test, transformation_pipeline, trained_model = model(train, test)
     load(train, test, transformation_pipeline, trained_model)
-    pass
 
 
 def extract():
@@ -111,7 +109,7 @@ def model(train, test):
     param_grid = {'svc__gamma': numpy.logspace(-9, 3, 1),
                   'svc__C': numpy.logspace(-2, 10, 1),
                   'svc__kernel': ['linear', 'poly', 'rbf', 'sigmoid'],
-                  'svc__degree': range(2,8)}
+                  'svc__degree': range(2, 8)}
 
     trained_model = GridSearchCV(transformation_pipeline, param_grid=param_grid, scoring='accuracy', cv=2, n_jobs=-1)
     logging.info('Training model')
@@ -156,7 +154,6 @@ def load(train, test, transformation_pipeline, trained_model):
 
     # Serialize trained_model
     if trained_model is not None:
-
         # Serialize trained_model
         trained_model_path = os.path.join(lib.get_batch_output_folder(), 'trained_model.pkl')
         logging.info('Saving trained_model to path: {}'.format(trained_model_path))
@@ -164,7 +161,6 @@ def load(train, test, transformation_pipeline, trained_model):
 
         # Capture model results
         print trained_model.cv_results_
-
 
     lib.archive_dataset_schemas('load', locals(), globals())
     logging.info('End load')
