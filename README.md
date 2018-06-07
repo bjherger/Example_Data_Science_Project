@@ -1,6 +1,9 @@
-# Python Starter Repo
+# Titanic data model
 
-A brief, snappy description of what this project does, and why the audience cares
+A pipeline to predict whether or not Titanic passengers survived. For a further dive into the problem space and data 
+set, see [kaggle](https://www.kaggle.com/c/titanic). 
+
+This repo is both an opportunity to build a great model, and to explore what a great data pipeline can look like.  
 
 ## Quick start
 
