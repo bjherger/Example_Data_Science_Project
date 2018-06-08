@@ -51,6 +51,8 @@ def extract():
 
     # Load the data set
     observations = lib.load_titanic()
+
+    # Subset observation for speedier test iterations
     if lib.get_conf('test_run'):
         logging.warn('test_run is set to True. Subsetting to a much smaller data set for testing purposes.')
         observations = observations.sample(100)

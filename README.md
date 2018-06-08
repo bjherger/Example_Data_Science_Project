@@ -7,7 +7,7 @@ This repo is both an opportunity to build a great model, and to explore what a g
 
 ## Quick start
 
-```python
+```bash
 # Set up Anaconda virtual environment
 conda env create -f environment.yml --force
 
