@@ -5,7 +5,7 @@ coding=utf-8
 Code Template
 
 """
-import cPickle
+import pickle
 import logging
 import os
 
@@ -152,17 +152,17 @@ def load(train, test, transformation_pipeline, trained_model):
     if transformation_pipeline is not None:
         transformation_pipeline_path = os.path.join(lib.get_batch_output_folder(), 'transformation_pipeline.pkl')
         logging.info('Saving transformation_pipeline to path: {}'.format(transformation_pipeline_path))
-        cPickle.dump(transformation_pipeline, open(transformation_pipeline_path, 'w+'))
+        pickle.dump(transformation_pipeline, open(transformation_pipeline_path, 'wb'))
 
     # Serialize trained_model
     if trained_model is not None:
         # Serialize trained_model
         trained_model_path = os.path.join(lib.get_batch_output_folder(), 'trained_model.pkl')
         logging.info('Saving trained_model to path: {}'.format(trained_model_path))
-        cPickle.dump(trained_model, open(trained_model_path, 'w+'))
+        pickle.dump(trained_model, open(trained_model_path, 'wb'))
 
         # Capture model results
-        print trained_model.cv_results_
+        print(trained_model.cv_results_)
 
     lib.archive_dataset_schemas('load', locals(), globals())
     logging.info('End load')
